@@ -42,4 +42,45 @@ var anotherPerson1 = Object.create(person);
 anotherPerson.name = 'sowmyasri';
 console.log(anotherPerson1.age)
 
+Object.prototype.greet = function(){
+    console.log("Hello there! "+this.name +"!!");
+};
+person.greet();
+//prototype
+console.log(person.__proto__)
+
+
+//Prototypes in action
+var kota = Object.create(person);
+//kota.name = "sowmyasri"
+kota.greet()
+
+
+//constructor functions
+
+function Person(){
+this.name = 'Sowmya';
+this.greet = function(){
+    console.log("Hello, I am ",this.name);
+}
+}
+Person.prototype.greetGeneral = function(){
+    console.log("Hello");
+}
+var person = new Person();
+person.name = 'javascript';
+
+
+person.greet();
+var anoPerson = new Person();
+anoPerson.greet();
+anoPerson.greetGeneral();
+
+//instanceof
+console.log(person instanceof Person);
+
+
+
+
+
 
